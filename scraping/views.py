@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from scraping.models import Vacancy
+
+
+def home(request):
+    vacancies = Vacancy.objects.all()
+    return render(request, 'scraping/home.html', {'vacancies': vacancies})
